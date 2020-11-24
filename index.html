@@ -5,9 +5,8 @@
 	<title>Project 5</title>
 	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    	
 
 </head>
 <body>
@@ -36,17 +35,15 @@
 
   function getData(selected_major) {      
       var request = new XMLHttpRequest();
-      request.open('GET', 'cit5students.json');      // open Ajax request for data file m
+      request.open('GET', 'cit5students.json');     
  
-      request.onload = function() {                     // when the data comes back, browser calls this function
-         var data = JSON.parse(request.responseText);    // convert json to javascript array of objects
-	console.log(data);
-         major_items = data.filter(getMajor)       //major_itmes array will contain the filtered data using the getMajor() function
+      request.onload = function() {                    
+         var data = JSON.parse(request.responseText);   
+         major_items = data.filter(getMajor)      
          function getMajor(item) {
-            return item.major == selected_major;   // the new major_items array will contain only items for the selected meal
+            return item.major == selected_major;   
          }
-        console.log(major_items);
-        if (request.status == 200) {    // if all is well as data returns, then compile and populate the template
+        if (request.status == 200) {    
             var templateText = document.getElementById('tableTemplate').innerHTML;
             var compiledTemplateText = Handlebars.compile(templateText);       
             compiledHtml = compiledTemplateText({ rows: major_items });
