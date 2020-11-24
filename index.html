@@ -22,7 +22,7 @@
 		<h3>We filter our dataset by major</h3>
   
 </body>
-
+	<div id="output"></div>
 <script type="text/x-handlebars-template" id="tableTemplate">
 	<table id="majorTable" cellspacing='12'>
 		<tr><th>Name</th><th>Major</th><th>Midterm</th><th>Final</th></tr>
@@ -50,10 +50,10 @@
             var templateText = document.getElementById('tableTemplate').innerHTML;
             var compiledTemplateText = Handlebars.compile(templateText);       
             compiledHtml = compiledTemplateText({ rows: major_items })          
-            document.getElementById('tableTemplate').innerHTML = compiledHtml; 
+            document.getElementById('output').innerHTML = compiledHtml; 
         }
         else {
-            document.querySelector('#majorTable').innerHTML = "There was an error, or major not found";
+            document.querySelector('#output').innerHTML = "There was an error, or major not found";
         }
      }
      
