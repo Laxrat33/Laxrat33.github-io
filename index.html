@@ -50,7 +50,7 @@
             var templateText = document.getElementById('tableTemplate').innerHTML;
             var compiledTemplateText = Handlebars.compile(templateText);       
             compiledHtml = compiledTemplateText({ rows: major_items })          
-            document.getElementById('majorTable').innerHTML = compiledHtml; 
+            document.getElementById('tableTemplate').innerHTML = compiledHtml; 
         }
         else {
             document.querySelector('#majorTable').innerHTML = "There was an error, or major not found";
